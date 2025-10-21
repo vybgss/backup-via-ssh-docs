@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backup via SSH - Support</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 40px;
+        line-height: 1.6;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 50px;
+        color: #1a73e8;
+      }
+      h2 {
+        color: #333;
+        margin-top: 40px;
+      }
+      p {
+        margin-bottom: 20px;
+      }
+      a {
+        color: #1a73e8;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      ul li {
+        background: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-left: 4px solid #1a73e8;
+      }
+      .top-text {
+        font-style: italic;
+        margin-bottom: 50px;
+      }
+      code {
+        background: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Backup via SSH - Support</h1>
+
+    <p class="top-text">
+      If you're experiencing issues with Backup via SSH or have any questions, you're in the right place. Below, you'll find ways to get help or contact us for support. We're here to assist you and ensure you get the best experience backing up your servers.
+    </p>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+
+    <ul>
+      <li>
+        <strong>1. How do I add a server to backup?</strong><br />
+        Click the "Add Server" button in the toolbar and enter your server details: hostname or IP address, SSH username (default: root), port (default: 22), optional SSH key path, and the directories you want to backup (one per line). Then click "Add Server" to save the configuration.
+      </li>
+
+      <li>
+        <strong>2. What authentication methods are supported?</strong><br />
+        Backup via SSH supports <span style="color: #d93025; font-weight: bold;">SSH key authentication only</span>. You can specify the path to your private key (e.g., <code>~/.ssh/id_rsa</code>) and indicate if it requires a passphrase. <span style="color: #d93025; font-weight: bold;">Password-based authentication is not supported for security reasons.</span>
+      </li>
+
+      <li>
+        <strong>3. Where are my backups stored?</strong><br />
+        All backups are stored locally on your Mac in the <code>~/Backup via SSH/</code> directory. Each backup is saved as a ZIP archive with the format <code>{hostname}_{timestamp}.zip</code>. You can access this folder by clicking the "Open Backups Folder" button in the app.
+      </li>
+
+      <li>
+        <strong>4. Can I backup multiple servers at once?</strong><br />
+        Yes! Click the "Backup All" button in the toolbar to run backups for all configured servers simultaneously. The app uses parallel processing to efficiently backup multiple servers at the same time.
+      </li>
+
+      <li>
+        <strong>5. How do I export and import my server list?</strong><br />
+        Click the gear icon in the toolbar and select "Export Servers" to save your server configurations as a JSON file. To import, select "Import Servers" and choose a previously exported file. This is useful for migrating settings between machines or sharing configurations with team members. Note: SSH keys and passphrases are never exported for security reasons.
+      </li>
+
+      <li>
+        <strong>6. What happens if a directory doesn't exist on the server?</strong><br />
+        The app will continue backing up other directories even if some don't exist.
+      </li>
+
+      <li>
+        <strong>7. I'm getting "Permission denied" errors. What should I do?</strong><br />
+        Test your SSH connection manually with <code>ssh -i ~/.ssh/id_rsa user@hostname</code> to diagnose the issue.
+      </li>
+
+      <li>
+        <strong>8. Can I stop a backup in progress?</strong><br />
+        Yes, you can click the "Stop" button on any server card to cancel an in-progress backup. The app will safely terminate the backup process and clean up any temporary files.
+      </li>
+
+      <li>
+        <strong>9. How does the app handle SSH keys with passphrases?</strong><br />
+        When you enable "Passphrase Required" for a server, the app will prompt you for the passphrase when you start a backup. It uses isolated ssh-agent sessions for security and never stores your passphrase.
+      </li>
+
+      <li>
+        <strong>10. What directories should I backup?</strong><br />
+        Common directories to backup include:
+        <ul style="margin-top: 10px;">
+          <li><code>/var/www</code> - Web server files</li>
+          <li><code>/etc/nginx</code> or <code>/etc/apache2</code> - Web server configurations</li>
+          <li><code>/etc/letsencrypt</code> - SSL certificates</li>
+          <li><code>/home</code> - User home directories</li>
+          <li>Database dumps or application-specific directories</li>
+        </ul>
+        Customize the directory list based on your server's specific needs.
+      </li>
+
+      <li>
+        <strong>11. Does the app work with all server types?</strong><br />
+        Backup via SSH works with any Linux or Unix-based server that supports SSH access and has <code>rsync</code> installed (which is standard on most systems). This includes Ubuntu, Debian, CentOS, RHEL, and other popular distributions.
+      </li>
+
+      <li>
+        <strong>12. What are the system requirements?</strong><br />
+        The app uses built-in macOS tools like <code>rsync</code> and <code>ssh</code>, so no additional software installation is required on your Mac.
+      </li>
+    </ul>
+
+    <h2>Contact Support</h2>
+
+    <p>
+      If you didn't find the answer you're looking for, feel free to reach out to us for further assistance. We'll get back to you as soon as possible.
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:volodymyr.sichka@gmail.com">volodymyr.sichka@gmail.com</a>
+    </p>
+
+    <h2>Feedback</h2>
+
+    <p>
+      We value your feedback! If you have suggestions or ideas for improving Backup via SSH, please send them to us via the email above. Your input helps us enhance the app and deliver a better experience for everyone.
+    </p>
+  </body>
+</html>
