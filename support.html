@@ -3,151 +3,212 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Backup via SSH - Support</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 0 40px;
-        line-height: 1.6;
-        color: #333;
-      }
-      h1 {
-        text-align: center;
-        margin-bottom: 50px;
-        color: #1a73e8;
-      }
-      h2 {
-        color: #333;
-        margin-top: 40px;
-      }
-      p {
-        margin-bottom: 20px;
-      }
-      a {
-        color: #1a73e8;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      ul li {
-        background: #f9f9f9;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-left: 4px solid #1a73e8;
-      }
-      .top-text {
-        font-style: italic;
-        margin-bottom: 50px;
-      }
-      code {
-        background: #f4f4f4;
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-family: 'Courier New', monospace;
-      }
-    </style>
+    <title>Support — Backup via SSH</title>
+    <meta name="description" content="Get started with Backup via SSH, find answers to common questions and fix SSH connection problems." />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <h1>Backup via SSH - Support</h1>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="marketing.html"><img src="assets/icon-256.png" alt="" /><span>Backup via SSH</span></a>
+        <nav class="nav-links">
+          <a href="marketing.html">Overview</a>
+          <a href="support.html" aria-current="page">Support</a>
+          <a href="privacy-policy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
 
-    <p class="top-text">
-      If you're experiencing issues with Backup via SSH or have any questions, you're in the right place. Below, you'll find ways to get help or contact us for support. We're here to assist you and ensure you get the best experience backing up your servers.
-    </p>
+    <div class="hero hero-compact">
+      <div class="wrap">
+        <img class="hero-icon" src="assets/icon-256.png" alt="Backup via SSH app icon" />
+        <h1>How can we help?</h1>
+        <p class="lead">Set up your first backup, find answers and fix connection problems.</p>
+      </div>
+    </div>
 
-    <h2>Frequently Asked Questions (FAQ)</h2>
+    <main>
+      <div class="wrap wrap-narrow">
+        <section id="start">
+          <h2 class="section-title">Get started</h2>
+          <p class="section-lead">Your first backup takes about a minute.</p>
+          <ol class="steps">
+            <li><strong>Add a server</strong><span>Click <strong>Add Server</strong> in the sidebar or press <kbd>⌘N</kbd>. Enter the host (or an alias from your <code>~/.ssh/config</code>), the user and the port.</span></li>
+            <li><strong>Choose what to back up</strong><span>Add one directory per row, or tap a suggestion such as <code>/var/www</code>, <code>/etc/nginx</code> or <code>/etc/letsencrypt</code>.</span></li>
+            <li><strong>Test the connection</strong><span>Click <strong>Test Connection</strong>. If something is wrong, the app explains what and how to fix it.</span></li>
+            <li><strong>Back up</strong><span>Click <strong>Back Up Now</strong>. The first time, macOS asks you to grant access to your <code>.ssh</code> folder and to choose where archives are saved.</span></li>
+          </ol>
+        </section>
 
-    <ul>
-      <li>
-        <strong>1. How do I add a server to backup?</strong><br />
-        Click the "Add Server" button in the toolbar and enter your server details: hostname or IP address, SSH username (default: root), port (default: 22), optional SSH key path, and the directories you want to backup (one per line). Then click "Add Server" to save the configuration.
-      </li>
+        <section id="faq">
+          <h2 class="section-title">Frequently asked questions</h2>
+          <p class="section-lead">Tap a question to see the answer.</p>
+          <div class="faq">
+            <details>
+              <summary>What does the app need on my servers?</summary>
+              <div class="answer">
+                <p>SSH access with key-based login and <code>rsync</code> installed — it is available on virtually every Linux and Unix server (Ubuntu, Debian, Fedora, RHEL, Alpine, FreeBSD and others). Nothing else needs to be installed on the server or on your Mac.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>2. What authentication methods are supported?</strong><br />
-        Backup via SSH supports <span style="color: #d93025; font-weight: bold;">SSH key authentication only</span>. You can specify the path to your private key (e.g., <code>~/.ssh/id_rsa</code>) and indicate if it requires a passphrase. <span style="color: #d93025; font-weight: bold;">Password-based authentication is not supported for security reasons.</span>
-      </li>
+            <details>
+              <summary>Which authentication methods are supported?</summary>
+              <div class="answer">
+                <p>SSH keys only. Choose a private key in the server settings, or leave the field empty to use the keys and options from your SSH config. Password login is not supported.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>3. Where are my backups stored?</strong><br />
-        All backups are stored locally on your Mac in the <code>~/Backup via SSH/</code> directory. Each backup is saved as a ZIP archive with the format <code>{hostname}_{timestamp}.zip</code>. You can access this folder by clicking the "Open Backups Folder" button in the app.
-      </li>
+            <details>
+              <summary>My key has a passphrase. How does that work?</summary>
+              <div class="answer">
+                <p>Turn on <strong>Key is protected by a passphrase</strong> in the server settings. When a backup starts, the app asks for the passphrase and unlocks the key in a private <code>ssh-agent</code> that is discarded after the run. If you mistype it, you can try again.</p>
+                <p>Tick <strong>Remember in Keychain</strong> to store the passphrase in your macOS Keychain — this is required for scheduled backups of that server. Click <strong>Forget</strong> in the server settings to remove it.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>4. Can I backup multiple servers at once?</strong><br />
-        Yes! Click the "Backup All" button in the toolbar to run backups for all configured servers simultaneously. The app uses parallel processing to efficiently backup multiple servers at the same time.
-      </li>
+            <details>
+              <summary>Where are my backups saved?</summary>
+              <div class="answer">
+                <p>In the folder you choose before the first backup (<code>~/Backup via SSH</code> is suggested). Each backup is one ZIP file named <code>{host}_{date-time}.zip</code>. Change the folder in <strong>Settings → Storage &amp; Access</strong>, or press <kbd>⇧⌘O</kbd> to open it in Finder.</p>
+                <p>Every server page lists its archives: double-click one to reveal it in Finder, or right-click to move it to the Trash.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>5. How do I export and import my server list?</strong><br />
-        Click the gear icon in the toolbar and select "Export Servers" to save your server configurations as a JSON file. To import, select "Import Servers" and choose a previously exported file. This is useful for migrating settings between machines or sharing configurations with team members. Note: SSH keys and passphrases are never exported for security reasons.
-      </li>
+            <details>
+              <summary>Why does the app ask for access to my .ssh folder?</summary>
+              <div class="answer">
+                <p>The app runs in the macOS App Sandbox. Access to <code>~/.ssh</code> lets <code>ssh</code> read your config, <code>known_hosts</code> and keys, exactly as it does in Terminal. You grant it once; nothing in that folder is copied or uploaded.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>6. What happens if a directory doesn't exist on the server?</strong><br />
-        The app will continue backing up other directories even if some don't exist.
-      </li>
+            <details>
+              <summary>How do scheduled backups work?</summary>
+              <div class="answer">
+                <p>In the server settings, set <strong>Schedule</strong> to every 6 hours, daily or weekly. Scheduled backups run while the app is open — after you close the window it keeps working from the menu bar. Bring the window back with <strong>Window → Backup via SSH</strong> (<kbd>⌘1</kbd>), the Dock icon or the menu bar item.</p>
+                <p>For servers with a passphrase-protected key, save the passphrase in Keychain so scheduled runs can unlock it.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>7. I'm getting "Permission denied" errors. What should I do?</strong><br />
-        Test your SSH connection manually with <code>ssh -i ~/.ssh/id_rsa user@hostname</code> to diagnose the issue.
-      </li>
+            <details>
+              <summary>Can I keep only the latest archives?</summary>
+              <div class="answer">
+                <p>Yes. Set <strong>Keep archives</strong> in the server settings (for example, last 10). After each successful backup, older archives of that server are moved to the Trash.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>8. Can I stop a backup in progress?</strong><br />
-        Yes, you can click the "Stop" button on any server card to cancel an in-progress backup. The app will safely terminate the backup process and clean up any temporary files.
-      </li>
+            <details>
+              <summary>Can I back up all servers at once?</summary>
+              <div class="answer">
+                <p>Yes — click <strong>Back Up All</strong> on the Overview, in the menu bar item, or press <kbd>⇧⌘B</kbd>. Servers are backed up in parallel, and you can stop any backup with <strong>Stop</strong> (<kbd>⌘.</kbd>).</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>9. How does the app handle SSH keys with passphrases?</strong><br />
-        When you enable "Passphrase Required" for a server, the app will prompt you for the passphrase when you start a backup. It uses isolated ssh-agent sessions for security and never stores your passphrase.
-      </li>
+            <details>
+              <summary>What if a directory doesn't exist on the server?</summary>
+              <div class="answer">
+                <p>The backup continues with the other directories. Files that vanish or can't be read during the transfer are reported in the live log but don't stop the backup.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>10. What directories should I backup?</strong><br />
-        Common directories to backup include:
-        <ul style="margin-top: 10px;">
-          <li><code>/var/www</code> - Web server files</li>
-          <li><code>/etc/nginx</code> or <code>/etc/apache2</code> - Web server configurations</li>
-          <li><code>/etc/letsencrypt</code> - SSL certificates</li>
-          <li><code>/home</code> - User home directories</li>
-          <li>Database dumps or application-specific directories</li>
-        </ul>
-        Customize the directory list based on your server's specific needs.
-      </li>
+            <details>
+              <summary>How do I move my servers to another Mac?</summary>
+              <div class="answer">
+                <p>Use <strong>File → Export Servers</strong> (<kbd>⇧⌘E</kbd>) and <strong>File → Import Servers</strong> (<kbd>⇧⌘I</kbd>). Exports never contain keys or passphrases — set those up on the new Mac.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>11. Does the app work with all server types?</strong><br />
-        Backup via SSH works with any Linux or Unix-based server that supports SSH access and has <code>rsync</code> installed (which is standard on most systems). This includes Ubuntu, Debian, CentOS, RHEL, and other popular distributions.
-      </li>
+            <details>
+              <summary>Will I get notified when a backup finishes?</summary>
+              <div class="answer">
+                <p>Yes, when the app is in the background or a scheduled backup ran. In the app you'll see a short message instead. Turn notifications off in <strong>Settings → General</strong>.</p>
+              </div>
+            </details>
 
-      <li>
-        <strong>12. What are the system requirements?</strong><br />
-        The app uses built-in macOS tools like <code>rsync</code> and <code>ssh</code>, so no additional software installation is required on your Mac.
-      </li>
-    </ul>
+            <details>
+              <summary>I deleted a server by mistake.</summary>
+              <div class="answer">
+                <p>Click <strong>Undo</strong> in the message that appears right after deleting. Archives are never deleted along with a server.</p>
+              </div>
+            </details>
 
-    <h2>Contact Support</h2>
+            <details>
+              <summary>What are the system requirements?</summary>
+              <div class="answer">
+                <p>macOS 14.6 or later. The app uses the <code>ssh</code>, <code>rsync</code> and <code>zip</code> tools built into macOS.</p>
+              </div>
+            </details>
+          </div>
+        </section>
 
-    <p>
-      If you didn't find the answer you're looking for, feel free to reach out to us for further assistance. We'll get back to you as soon as possible.
-    </p>
+        <section id="troubleshooting">
+          <h2 class="section-title">Troubleshooting</h2>
+          <p class="section-lead">When a backup fails, its page shows the error and a suggested fix. These are the most common ones.</p>
+          <div class="card table-card">
+            <table>
+              <thead>
+                <tr><th>Error</th><th>What to do</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Permission denied (publickey)</td><td>The server rejected the key. Check the user name and that your public key is in <code>~/.ssh/authorized_keys</code> on the server.</td></tr>
+                <tr><td>Host key verification failed</td><td>The server isn't in <code>known_hosts</code> yet. Choose <strong>Open SSH Session</strong> from the server's menu, accept the fingerprint once, then try again.</td></tr>
+                <tr><td>Remote host identification has changed</td><td>The server's host key changed. If that's expected (for example, after reinstalling), remove its old entry from <code>~/.ssh/known_hosts</code>.</td></tr>
+                <tr><td>Could not resolve hostname</td><td>Check the spelling of the host, or the alias in your SSH config.</td></tr>
+                <tr><td>Operation timed out</td><td>The server didn't answer. Check the address, the port and any firewall in between.</td></tr>
+                <tr><td>Connection refused</td><td>Nothing is listening on that port. Check the SSH port in the server settings.</td></tr>
+                <tr><td>Passphrase was rejected</td><td>Type it again in the unlock window. A passphrase saved in Keychain that no longer works is removed automatically.</td></tr>
+                <tr><td>Can't open user config file / Operation not permitted</td><td>macOS blocked access to a folder. Re-grant access in <strong>Settings → Storage &amp; Access</strong>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted" style="margin-top: 16px">Still stuck? Click <strong>Show Log</strong> on the failed backup and include the log when you email us.</p>
+        </section>
 
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:volodymyr.sichka@gmail.com">volodymyr.sichka@gmail.com</a>
-    </p>
+        <section id="shortcuts">
+          <h2 class="section-title">Keyboard shortcuts</h2>
+          <div class="card table-card">
+            <table class="shortcuts">
+              <tbody>
+                <tr><td>New server</td><td><kbd>⌘N</kbd></td></tr>
+                <tr><td>Back up selected server</td><td><kbd>⌘B</kbd></td></tr>
+                <tr><td>Back up all servers</td><td><kbd>⇧⌘B</kbd></td></tr>
+                <tr><td>Stop backup</td><td><kbd>⌘.</kbd></td></tr>
+                <tr><td>Edit server</td><td><kbd>⌘E</kbd></td></tr>
+                <tr><td>Duplicate server</td><td><kbd>⌘D</kbd></td></tr>
+                <tr><td>Open SSH session in Terminal</td><td><kbd>⌥⌘T</kbd></td></tr>
+                <tr><td>Copy SSH command</td><td><kbd>⇧⌘C</kbd></td></tr>
+                <tr><td>Show backups folder</td><td><kbd>⇧⌘O</kbd></td></tr>
+                <tr><td>Overview</td><td><kbd>⌘0</kbd></td></tr>
+                <tr><td>Show main window</td><td><kbd>⌘1</kbd></td></tr>
+                <tr><td>Import / export servers</td><td><kbd>⇧⌘I</kbd> / <kbd>⇧⌘E</kbd></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-    <h2>Feedback</h2>
+        <section id="contact">
+          <h2 class="section-title">Contact</h2>
+          <div class="card contact">
+            <div class="tile-icon" style="--c1: #4a8dff; --c2: #5b3ad6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m4 7 8 6 8-6" /></svg>
+            </div>
+            <p><strong>Questions, bugs or ideas?</strong><br />Send us an email and we'll get back to you.</p>
+            <a class="button" href="mailto:volodymyr.sichka@gmail.com?subject=Backup%20via%20SSH%20support">Email support</a>
+          </div>
+        </section>
+      </div>
+    </main>
 
-    <p>
-      We value your feedback! If you have suggestions or ideas for improving Backup via SSH, please send them to us via the email above. Your input helps us enhance the app and deliver a better experience for everyone.
-    </p>
+    <footer>
+      <div class="wrap">
+        <span>Backup via SSH by Volodymyr Sichka</span>
+        <nav>
+          <a href="marketing.html">Overview</a>
+          <a href="support.html">Support</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

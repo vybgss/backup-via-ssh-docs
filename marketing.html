@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backup via SSH — Server backups for Mac</title>
+    <meta name="description" content="Pull the folders you care about from any server you can SSH into and keep them as dated ZIP archives on your Mac. Live progress, schedules, retention and a menu bar that keeps watch." />
+    <meta property="og:title" content="Backup via SSH — Server backups for Mac" />
+    <meta property="og:description" content="Back up every server you can SSH into. Live progress, schedules, dated archives and a menu bar that keeps watch." />
+    <meta property="og:image" content="https://vybgss.github.io/backup-via-ssh-docs/assets/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="marketing.html"><img src="assets/icon-256.png" alt="" /><span>Backup via SSH</span></a>
+        <nav class="nav-links">
+          <a href="marketing.html" aria-current="page">Overview</a>
+          <a href="support.html">Support</a>
+          <a href="privacy-policy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero hero-has-shot">
+      <div class="wrap">
+        <img class="hero-icon" src="assets/icon-512.png" alt="Backup via SSH app icon" />
+        <h1>Server backups over SSH.</h1>
+        <p class="lead">Pull the folders you care about from any server you can SSH into and keep them as dated ZIP archives on your Mac.</p>
+        <div class="hero-actions">
+          <a class="badge" href="https://apps.apple.com/app/backup-via-ssh/id6754171656"><img src="assets/mac-app-store-badge-black.svg" alt="Download on the Mac App Store" /></a>
+          <span class="note">For macOS 14.6 or later</span>
+        </div>
+        <img class="hero-shot shot" src="assets/app/overview.webp" width="1800" height="1205" alt="The Backup via SSH Overview: six servers, all up to date, with archive count, storage used and success rate" />
+      </div>
+    </div>
+
+    <main>
+      <div class="wrap">
+        <section class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">Live progress</div>
+            <h2>Watch every file arrive.</h2>
+            <p>Every backup shows exactly where it is — connecting, syncing, archiving — with the file being copied, how many are left, the transfer speed and the real rsync log.</p>
+            <ul class="checks">
+              <li>Several servers back up in parallel</li>
+              <li>Stop any backup with one click</li>
+            </ul>
+          </div>
+          <img class="shot" src="assets/app/progress.webp" width="1600" height="1071" loading="lazy" alt="A backup at 74% with the current file, transfer speed, a Connect–Sync–Archive–Done stepper and the live rsync log" />
+        </section>
+
+        <section class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">Archives &amp; history</div>
+            <h2>Every backup, neatly dated.</h2>
+            <p>Each run becomes one timestamped ZIP in the folder you choose. Browse a server's archives, reveal them in Finder, and see the full history with duration and size.</p>
+            <ul class="checks">
+              <li>Keep only the last N archives — older ones go to the Trash</li>
+              <li>Nothing leaves your Mac</li>
+            </ul>
+          </div>
+          <img class="shot" src="assets/app/archives.webp" width="1600" height="1071" loading="lazy" alt="A server's archive list with dates and sizes, and its backup history" />
+        </section>
+
+        <section class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">Setup</div>
+            <h2>Set up in a minute.</h2>
+            <p>Enter a host — or just an alias from your SSH config — pick the folders, and test the connection before the first backup. Keys, ports and options from <code>~/.ssh/config</code> just work.</p>
+            <ul class="checks">
+              <li>One-click suggestions for common folders</li>
+              <li>Give each server a name, color and icon</li>
+            </ul>
+          </div>
+          <img class="shot" src="assets/app/editor.webp" width="1600" height="1071" loading="lazy" alt="The server editor with a successful connection test, key settings and directories" />
+        </section>
+
+        <section class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">Automation</div>
+            <h2>Set it and forget it.</h2>
+            <p>Schedule backups every 6 hours, daily or weekly. Close the window and the app keeps watch from the menu bar — and lets you know when a backup finishes or fails.</p>
+            <ul class="checks">
+              <li>Status of every server in the menu bar</li>
+              <li>Back up all servers from anywhere</li>
+            </ul>
+          </div>
+          <img src="assets/app/menubar.webp" width="660" height="736" loading="lazy" style="width: 100%; max-width: 400px; margin: 0 auto; border-radius: 18px" alt="The menu bar panel listing servers and a backup in progress" />
+        </section>
+
+        <section class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">Security</div>
+            <h2>Your keys stay yours.</h2>
+            <p>Passphrase-protected keys are unlocked in a private ssh-agent that's discarded after each run. Want unattended backups? Remember the passphrase in your Keychain — or don't.</p>
+            <ul class="checks">
+              <li>Runs in the macOS App Sandbox</li>
+              <li>No accounts, no cloud, no tracking</li>
+            </ul>
+          </div>
+          <img class="shot" src="assets/app/passphrase.webp" width="840" height="788" loading="lazy" style="width: 100%; max-width: 460px; margin: 0 auto" alt="The Unlock SSH Key window with a Remember in Keychain option" />
+        </section>
+
+        <section class="feature">
+          <div class="feature-text">
+            <div class="eyebrow">Clear fixes</div>
+            <h2>Answers, not cryptic errors.</h2>
+            <p>When something goes wrong, you get the error in plain language and how to fix it — a rejected key, an unknown host, a wrong port — plus the log if you want to dig deeper.</p>
+            <ul class="checks">
+              <li>Try again with one click</li>
+              <li>Open an SSH session in Terminal right from the app</li>
+            </ul>
+          </div>
+          <img class="shot" src="assets/app/failure.webp" width="1600" height="1071" loading="lazy" alt="A failed backup with the error, a suggested fix and Try Again, Edit Server and Show Log buttons" />
+        </section>
+
+        <section>
+          <h2 class="section-title" style="text-align: center">Made for the Mac.</h2>
+          <p class="section-lead" style="text-align: center">Small details that make backups feel effortless.</p>
+          <div class="grid-3">
+            <div class="card tile">
+              <div class="tile-icon" style="--c1: #4a8dff; --c2: #3a5ef0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" /><path d="M9 4v16" /></svg></div>
+              <h3>Native and fast</h3>
+              <p>Built with SwiftUI, with Liquid Glass on macOS 26 and full light and dark mode support.</p>
+            </div>
+            <div class="card tile">
+              <div class="tile-icon" style="--c1: #b56bff; --c2: #7a3ae0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l6-6-6-6" /><path d="M12 19h8" /></svg></div>
+              <h3>Speaks SSH</h3>
+              <p>Uses your SSH config, keys and known hosts — the same setup you use in Terminal.</p>
+            </div>
+            <div class="card tile">
+              <div class="tile-icon" style="--c1: #3ccf86; --c2: #13a86a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg></div>
+              <h3>Back up everything</h3>
+              <p>One click backs up every server at once, in parallel.</p>
+            </div>
+            <div class="card tile">
+              <div class="tile-icon" style="--c1: #ffad4a; --c2: #f07a1a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5" /><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10" /></svg></div>
+              <h3>Keyboard friendly</h3>
+              <p>Shortcuts for adding, backing up, editing and stopping — no mouse required.</p>
+            </div>
+            <div class="card tile">
+              <div class="tile-icon" style="--c1: #40c8e0; --c2: #1597b5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6" /><path d="m16 6-4-4-4 4" /><path d="M12 2v13" /></svg></div>
+              <h3>Import &amp; export</h3>
+              <p>Move your server list to another Mac in seconds. Secrets are never exported.</p>
+            </div>
+            <div class="card tile">
+              <div class="tile-icon" style="--c1: #ff6f9e; --c2: #e0386c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v5h5" /></svg></div>
+              <h3>Undo</h3>
+              <p>Deleted a server by accident? Bring it back with one click.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta">
+          <h2>Your servers, safely on your Mac.</h2>
+          <p>No accounts. No cloud. Just your files, backed up.</p>
+          <a class="badge" href="https://apps.apple.com/app/backup-via-ssh/id6754171656"><img src="assets/mac-app-store-badge-black.svg" alt="Download on the Mac App Store" /></a>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>Backup via SSH by Volodymyr Sichka</span>
+        <nav>
+          <a href="marketing.html">Overview</a>
+          <a href="support.html">Support</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
